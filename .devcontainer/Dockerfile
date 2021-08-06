@@ -4,13 +4,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update \
-    && apt-get -y install gcc make python3-pip \
+    && apt-get -y install gcc make python3-pip git \
     && rm -rf /var/lib/apt/lists/*s \
     && python3 -m pip --no-cache-dir install radian
 
 RUN install2.r --error \
-    methods \
-    jsonlite \
-    tseries
+    rlang \
+    jsonlite
 
 CMD [ "/bin/bash" ]
